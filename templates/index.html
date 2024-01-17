@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Generation Form</title>
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        #videoPlayer {
+            width: 100%;
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function showVideoPlayer() {
+            var formElement = document.getElementById("videoForm");
+            formElement.style.display = "none";
+
+            var videoPlayer = document.getElementById("videoPlayer");
+            videoPlayer.style.display = "block";
+            videoPlayer.src = "final_video.mp4";
+        }
+    </script>
+</head>
+<body>
+    <h1>Video Generation Form</h1>
+    <form id="videoForm" action="/generate" method="post">
+        <label for="question">Question:</label>
+        <input type="text" name="question" id="question" required><br><br>
+
+        <label for="keyword">Keyword:</label>
+        <input type="text" name="keyword" id="keyword" required><br><br>
+
+        <input type="submit" value="Generate Video" onclick="showVideoPlayer()">
+    </form>
+
+    <video id="videoPlayer" controls autoplay>
+        Your browser does not support the video tag.
+    </video>
+</body>
+</html>
